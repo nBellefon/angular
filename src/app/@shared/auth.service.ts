@@ -13,6 +13,7 @@ export class AuthService {
     console.log("authentaticated")
   }
 
+
   getEmail(){
     return this.user.email;
   }

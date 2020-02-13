@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { TestComponent } from './test/test.component';
 import { AuthService } from './@shared/auth.service';
+import { IdService } from './@shared/id.service';
 
 
 
@@ -16,6 +17,6 @@ import { AuthService } from './@shared/auth.service';
   imports:      [ BrowserModule, FormsModule, ReactiveFormsModule ],
   declarations: [ AppComponent, HelloComponent, TestComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [AuthService]
+  providers: [AuthService, IdService]
 })
 export class AppModule { }

@@ -26,7 +26,7 @@ export class TestComponent implements OnInit {
 
   login() {
     console.log('Données du formulaire...', this.loginForm.value);
-    this.authService.auth(this.loginForm.value.email, this.loginForm.value.password);
+    this.authService.auth(this.loginForm.value.email, this.loginForm.value.password, "1");
   }
 
 }

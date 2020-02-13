@@ -18,9 +18,6 @@ export class TestComponent implements OnInit {
 
   }
 
-ngOnInit() {
-    this.loginForm.get(email)
-  }
 
   login() {
     console.log('Données du formulaire...', this.loginForm.value);

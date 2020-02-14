@@ -4,13 +4,15 @@ import { Injectable } from '@angular/core';
 export class AuthService {
 
   user: User;
-  Ids: Array<{id: string}> = []; 
+  Users: Array<User> = []; 
+  compteur : number = 0;
 
   constructor() { }
 
   auth(email:string, password: string, id:string) {
-    this.user = { id : id, email: email, password: password };
-    
+    this.compteur =+ 1;
+    this.user = { id : this.compteur, email: email, password: password };
+    this.addUser(this.user);
 
     console.log("authentaticated")
   }
@@ -24,14 +26,15 @@ export class AuthService {
   }
   getPassword(){
     return this.user.password;
-
-    
   }
 
-    addID( user : User) {
-    console.log(user.id);
-    this.Ids.push(user.id);
-    console.log(this.Ids);
+  getUsers(){
+    return this.Users;
+  }
+
+  addUser( user : User) {
+    this.Users.push(user);
+
   }
 
 }
@@ -39,7 +42,7 @@ export class AuthService {
 
 
 export class User {
-  id: string;
+  id: number;
   email:string;
   password: string;
 }

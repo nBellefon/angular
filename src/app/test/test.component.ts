@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
-import {  AuthService } from '../@shared/auth.service';
+import {  AuthService, User } from '../@shared/auth.service';
 
 @Component({
   selector: 'app-test',
@@ -10,6 +10,7 @@ import {  AuthService } from '../@shared/auth.service';
 })
 export class TestComponent implements OnInit {
   loginForm : FormGroup;
+  users : User [];
 
   constructor(
     private fb: FormBuilder,
@@ -21,12 +22,19 @@ export class TestComponent implements OnInit {
       password: '',                   // Crée une instance de FormControl
     });
 
+
+
   }
 
+  ngOnInit(){
+    this.users = this.authService.getUsers();
+  }
 
   login() {
+    
     console.log('Données du formulaire...', this.loginForm.value);
-    this.authService.auth(this.loginForm.value.email, this.loginForm.value.password, "1");
+    this.authService.auth(this.loginForm.value.email, this.loginForm.value.password, "0");
+    
   }
 
 }

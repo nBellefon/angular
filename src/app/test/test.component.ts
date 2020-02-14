@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
-import {  AuthService, User } from '../@shared/auth.service';
+import {  AuthService, Film } from '../@shared/auth.service';
 
 @Component({
   selector: 'app-test',
@@ -9,40 +9,38 @@ import {  AuthService, User } from '../@shared/auth.service';
   styleUrls: ['./test.component.css']
 })
 export class TestComponent implements OnInit {
-  loginForm : FormGroup;
-  users : User [];
+  filmForm : FormGroup;
+  films : Film [];
 
   constructor(
     private fb: FormBuilder,
     private authService: AuthService
     ) { 
 
-    this.loginForm = this.fb.group({  // Crée une instance de FormGroup
-      email: '',                   // Crée une instance de FormControl
-      password: '',                   // Crée une instance de FormControl
+    this.filmForm = this.fb.group({  // Crée une instance de FormGroup
+      nom: '',                   // Crée une instance de FormControl
+      genre: '',
+      real: ''                   // Crée une instance de FormControl
     });
-
-
-
   }
 
   ngOnInit(){
-    this.users = this.authService.getUsers();
+    this.films = this.authService.getFilms();
   }
 
-  login() {
+  newFilm() {
     
-    console.log('Données du formulaire...', this.loginForm.value);
-    this.authService.auth(this.loginForm.value.email, this.loginForm.value.password, "0", 0);
+    console.log('Données du formulaire...', this.filmForm.value);
+    this.authService.auth(this.filmForm.value.nom, this.filmForm.value.genre,this.filmForm.value.real, "0", 0);
     
   }
 
   like(id : number){
-    this.users.find(x => x.id === id).note+=1
+    this.films.find(x => x.id === id).note+=1
   }
 
   dislike(id : number){
-    this.users.find(x => x.id === id).note-=1
+    this.films.find(x => x.id === id).note-=1
   }
 
 }

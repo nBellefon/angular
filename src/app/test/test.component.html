@@ -1,11 +1,11 @@
 
 <h1>
-Ajouter une idée
+Ajouter un film
 </h1>
 <br>
 
 
-<form [formGroup]="loginForm" (ngSubmit)="login()">
+<!--<form [formGroup]="filmForm" (ngSubmit)="newFilm()">
   <div class="form-group mx-sm-3 mb-2">
     <label for="exampleInputEmail1">Adresse email</label>
     <input type="email" class="form-control" formControlName="email" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -17,27 +17,65 @@ Ajouter une idée
 
   <button type="submit" class="btn btn-primary mx-3">Valider</button>
 </form>
+-->
+<form [formGroup]="filmForm" (ngSubmit)="newFilm()">
+  <div class="form-row mx-sm-3 mb-2">
+    <div class="form-group col-md-5">
+      <label for="inputNom">Nom du film</label>
+      <input type="text" class="form-control" formControlName="nom" id="inputNom">
+    </div>
+    <div class="form-group col-md-3">
+      <label for="inputGenre">Genre</label>
+      <select id="inputGenre" formControlName="genre" class="form-control">
+        <option selected>Action</option>
+        <option>Animation</option>
+        <option>Biopic</option>
+        <option>Comédie</option>
+        <option>Comédie dramatique</option>
+        <option>Drame</option>
+        <option>Horreur</option>
+        <option>Fantastique</option>
+        <option>Historique</option>
+        <option>Musical</option>
+        <option>Policier</option>
+        <option>Romance</option>
+        <option>Science-Fiction</option>
+        <option>Thriller</option>
+        <option>Western</option>
+      </select>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputReal">Réalisateur</label>
+      <input type="text" class="form-control" formControlName="real" id="inputReal">
+    </div>
 
+  </div>
+  <button type="submit" class="btn btn-primary ml-4">Valider</button>
+  
+
+</form>
 <br>
 <table class="table table-dark mx-3">
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Email</th>
-      <th scope="col">Password</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Genre</th>
+      <th scope="col">Réalisateur</th>
       <th scope="col">Like</th>
       <th scope="col">Dislike</th>
       <th scope="col">Note</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let user of users">
-      <th scope="row">{{user.id}}</th>
-      <td>{{user.email}}</td>
-      <td>{{user.password}}</td>
-      <td><button (click)="like(user.id)" type="button" class="btn btn-outline-success">Like</button></td>
-      <td><button (click)="dislike(user.id)" type="button" class="btn btn-outline-danger">Dislike</button></td>
-      <td>{{user.note}}</td>
+    <tr *ngFor="let film of films">
+      <th scope="row">{{film.id}}</th>
+      <td>{{film.nom}}</td>
+      <td>{{film.genre}}</td>
+      <td>{{film.real}}</td>
+      <td><button (click)="like(film.id)" type="button" class="btn btn-outline-success">Like</button></td>
+      <td><button (click)="dislike(film.id)" type="button" class="btn btn-outline-danger">Dislike</button></td>
+      <td>{{film.note}}</td>
     </tr>
   </tbody>
 </table>

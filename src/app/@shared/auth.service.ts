@@ -3,57 +3,59 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class AuthService {
 
-  user: User;
-  Users: Array<User> = []; 
+  film : Film;
+  Films : Array<Film> = []; 
   compteur : number = 0;
 
   constructor() { }
 
-  auth(email:string, password: string, id:string, note: number) {
+  auth(nom:string, genre:string, real:string ,id:string, note: number) {
     this.compteur +=1
-    //console.log("ID : "+this.compteur);
-    this.user = { id : this.compteur, email: email, password: password , note:note };
-    this.addUser(this.user);
+    this.film = { id : this.compteur, nom: nom, genre : genre, real:real , note:note};
+    this.addFilm(this.film);
 
-    console.log("authentaticated")
+    console.log("film ajouté")
   }
 
 
   getId(){
-    return this.user.id;
+    return this.film.id;
   }
 
-  getEmail(){
-    return this.user.email;
+  getNom(){
+    return this.film.nom;
   }
-  getPassword(){
-    return this.user.password;
+  getGenre(){
+    return this.film.genre;
   }
 
-  getUsers(){
-    return this.Users;
+  getReal(){
+    return this.film.real;
+  }
+
+  getFilms(){
+    return this.Films;
   }
 
   getNote(){
-    return this.user.note
+    return this.film.note
   }
 
   setNote(note : number){
-    this.user.note = note;
+    this.film.note = note;
   }
 
-  addUser( user : User) {
-    this.Users.push(user);
+  addFilm( film : Film ) {
+    this.Films.push(film);
 
   }
 
 }
 
-
-
-export class User {
+export class Film {
   id: number;
-  email:string;
-  password: string;
+  nom:string;
+  genre:string;
+  real:string;
   note:number;
 }

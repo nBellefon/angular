@@ -33,8 +33,16 @@ export class TestComponent implements OnInit {
   login() {
     
     console.log('Données du formulaire...', this.loginForm.value);
-    this.authService.auth(this.loginForm.value.email, this.loginForm.value.password, "0");
+    this.authService.auth(this.loginForm.value.email, this.loginForm.value.password, "0", 0);
     
+  }
+
+  like(id : number){
+    this.users.find(x => x.id === id).note+=1
+  }
+
+  dislike(id : number){
+    this.users.find(x => x.id === id).note-=1
   }
 
 }

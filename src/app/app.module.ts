@@ -9,14 +9,22 @@ import { HelloComponent } from './hello.component';
 import { TestComponent } from './test/test.component';
 import { AuthService } from './@shared/auth.service';
 import { ConnexionComponent } from './connexion/connexion.component';
+import { ConnexionService } from './@shared/connexion.service';
+
+import { RouterModule, Routes} from'@angular/router';
 
 
+const allRoutes : Routes = [
+  {path : 'auth', component : ConnexionComponent },
+  {path : 'film', component : TestComponent},
+  {path : '', component : ConnexionComponent}
+]
 
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, ReactiveFormsModule ],
+  imports:      [ BrowserModule, FormsModule, ReactiveFormsModule, RouterModule.forRoot(allRoutes) ],
   declarations: [ AppComponent, HelloComponent, TestComponent, ConnexionComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [AuthService]
+  providers: [AuthService, ConnexionService]
 })
 export class AppModule { }

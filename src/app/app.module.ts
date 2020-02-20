@@ -13,18 +13,20 @@ import { ConnexionService } from './@shared/connexion.service';
 
 import { RouterModule, Routes} from'@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './home/home.component';
 
 
 const allRoutes : Routes = [
   {path : 'auth', component : ConnexionComponent },
   {path : 'film', component : TestComponent},
+  {path : 'home', component : HomeComponent},
   {path : '', component : ConnexionComponent}
 ]
 
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, ReactiveFormsModule, RouterModule.forRoot(allRoutes) ],
-  declarations: [ AppComponent, HelloComponent, TestComponent, ConnexionComponent, NavbarComponent ],
+  declarations: [ AppComponent, HelloComponent, TestComponent, ConnexionComponent, NavbarComponent, HomeComponent ],
   bootstrap:    [ AppComponent ],
   providers: [AuthService, ConnexionService]
 })

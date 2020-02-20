@@ -28,7 +28,7 @@ export class ConnexionComponent implements OnInit {
   newAuth(){
     console.log('Données du formulaire...', this.authForm.value);
     this.authService.auth(this.authForm.value.pseudo, this.authForm.value.password);
-    this.router.navigate(['film']);
+    this.router.navigate(['home']);
   }
 
 }

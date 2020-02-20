@@ -12,6 +12,7 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { ConnexionService } from './@shared/connexion.service';
 
 import { RouterModule, Routes} from'@angular/router';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 const allRoutes : Routes = [
@@ -23,7 +24,7 @@ const allRoutes : Routes = [
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, ReactiveFormsModule, RouterModule.forRoot(allRoutes) ],
-  declarations: [ AppComponent, HelloComponent, TestComponent, ConnexionComponent ],
+  declarations: [ AppComponent, HelloComponent, TestComponent, ConnexionComponent, NavbarComponent ],
   bootstrap:    [ AppComponent ],
   providers: [AuthService, ConnexionService]
 })

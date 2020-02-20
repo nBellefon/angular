@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
-import {  AuthService, Film } from '../@shared/auth.service';
+import { AuthService, Film } from '../@shared/auth.service';
 
 @Component({
   selector: 'app-test',

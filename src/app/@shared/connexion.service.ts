@@ -7,18 +7,23 @@ export class ConnexionService {
 
   constructor() { }
 
-    auth(email:string, password:string) {
+    auth(pseudo:string, password:string) {
  //   this.compteur +=1
-    this.user = {email: email, password : password};
+    this.user = {pseudo: pseudo, password : password};
   //  this.addFilm(this.film);
 
     console.log("connexion réussie")
   }
 
+  getPseudo(){
+    return this.user.pseudo;
+  }
+
+
   }
 
     export class User{
-    email : string;
+    pseudo : string;
     password : string;
 
 }

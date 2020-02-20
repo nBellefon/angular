@@ -20,14 +20,14 @@ export class ConnexionComponent implements OnInit {
   ngOnInit() {
 
       this.authForm = this.fb.group({ 
-      email: '',                   
+      pseudo: '',                   
       password: ''          
     });
   }
 
   newAuth(){
     console.log('Données du formulaire...', this.authForm.value);
-    this.authService.auth(this.authForm.value.email, this.authForm.value.password);
+    this.authService.auth(this.authForm.value.pseudo, this.authForm.value.password);
     this.router.navigate(['film']);
   }
 

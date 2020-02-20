@@ -51,6 +51,15 @@ export class AuthService {
 
   }
 
+  supprFilm(film : Film){
+    console.log("avant service")
+    this.Films = this.Films.filter(f => f.id != film.id);
+    
+    console.log(film.id);
+    console.log(this.Films.length);
+    console.log("après service")
+  }
+
 }
 
 export class Film {

@@ -68,6 +68,7 @@ Ajouter un film
       <th scope="col">Like</th>
       <th scope="col">Dislike</th>
       <th scope="col">Note</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -79,6 +80,7 @@ Ajouter un film
       <td><button (click)="like(film.id)" type="button" class="btn btn-outline-success">Like</button></td>
       <td><button (click)="dislike(film.id)" type="button" class="btn btn-outline-danger">Dislike</button></td>
       <td>{{film.note}}</td>
+      <td><img (click)="delete(film)"class="picture" src="https://image.flaticon.com/icons/svg/1632/1632708.svg" alt="oups" height="30" width="30"></td>
     </tr>
   </tbody>
 </table>

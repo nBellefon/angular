@@ -46,4 +46,11 @@ export class TestComponent implements OnInit {
     this.films.find(x => x.id === id).note-=1
   }
 
+  delete(film : Film){
+    console.log("avant ts")
+    this.filmService.supprFilm(film);
+    this.ngOnInit()
+    console.log("après ts")
+  }
+
 }

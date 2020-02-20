@@ -47,10 +47,8 @@ export class TestComponent implements OnInit {
   }
 
   delete(film : Film){
-    console.log("avant ts")
     this.filmService.supprFilm(film);
     this.ngOnInit()
-    console.log("après ts")
   }
 
 }

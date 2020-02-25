@@ -51,4 +51,8 @@ export class TestComponent implements OnInit {
     this.ngOnInit()
   }
 
+  init() {
+    this.filmService.init().subscribe();
+  }
+
 }

@@ -10,6 +10,7 @@ import { TestComponent } from './test/test.component';
 import { FilmService } from './@shared/film.service';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { ConnexionService } from './@shared/connexion.service';
+import { HttpClientModule } from '@angular/common/http';
 
 import { RouterModule, Routes} from'@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -25,7 +26,7 @@ const allRoutes : Routes = [
 
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, ReactiveFormsModule, RouterModule.forRoot(allRoutes) ],
+  imports:      [ BrowserModule, FormsModule, ReactiveFormsModule, RouterModule.forRoot(allRoutes), HttpClientModule ],
   declarations: [ AppComponent, HelloComponent, TestComponent, ConnexionComponent, NavbarComponent, HomeComponent ],
   bootstrap:    [ AppComponent ],
   providers: [FilmService, ConnexionService]

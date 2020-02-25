@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
-import { AuthService, Film } from '../@shared/auth.service';
+import { FilmService, Film } from '../@shared/film.service';
 import { ConnexionService, User } from '../@shared/connexion.service';
 
 @Component({
@@ -16,7 +16,7 @@ export class TestComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private filmService: AuthService,
+    private filmService: FilmService,
     private authService : ConnexionService
     ) {
 

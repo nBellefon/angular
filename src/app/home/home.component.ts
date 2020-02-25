@@ -9,10 +9,10 @@ import { ConnexionService, User } from '../@shared/connexion.service';
 export class HomeComponent implements OnInit {
   pseudo : string;
 
-  constructor(private authService : ConnexionService) { }
+  constructor(private filmService : ConnexionService) { }
 
   ngOnInit() {
-    this.pseudo = this.authService.getPseudo();
+    this.pseudo = this.filmService.getPseudo();
   }
 
 }

@@ -7,7 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { TestComponent } from './test/test.component';
-import { AuthService } from './@shared/auth.service';
+import { FilmService } from './@shared/film.service';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { ConnexionService } from './@shared/connexion.service';
 
@@ -28,6 +28,6 @@ const allRoutes : Routes = [
   imports:      [ BrowserModule, FormsModule, ReactiveFormsModule, RouterModule.forRoot(allRoutes) ],
   declarations: [ AppComponent, HelloComponent, TestComponent, ConnexionComponent, NavbarComponent, HomeComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [AuthService, ConnexionService]
+  providers: [FilmService, ConnexionService]
 })
 export class AppModule { }

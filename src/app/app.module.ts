@@ -15,12 +15,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes} from'@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
+import { AccesHomeGuard } from './@shared/acces-home.guard';
 
 
 const allRoutes : Routes = [
-  {path : 'auth', component : ConnexionComponent },
+  {path : 'auth', component : ConnexionComponent},
   {path : 'film', component : TestComponent},
-  {path : 'home', component : HomeComponent},
+  {path : 'home', component : HomeComponent, canActivate :[AccesHomeGuard]},
   {path : '', component : ConnexionComponent}
 ]
 
@@ -29,6 +30,6 @@ const allRoutes : Routes = [
   imports:      [ BrowserModule, FormsModule, ReactiveFormsModule, RouterModule.forRoot(allRoutes), HttpClientModule ],
   declarations: [ AppComponent, HelloComponent, TestComponent, ConnexionComponent, NavbarComponent, HomeComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [FilmService, ConnexionService]
+  providers: [FilmService, ConnexionService, AccesHomeGuard]
 })
 export class AppModule { }
